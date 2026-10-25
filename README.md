@@ -1,4 +1,4 @@
-# North Vacation Booking — Equivalence Partitioning
+﻿# North Vacation Booking — Equivalence Partitioning
 
 ## 1. Project Overview
 
@@ -228,3 +228,42 @@ Equivalence partitioning organizes inputs into groups expected to produce the sa
 ## 6. Reference
 
 GeeksforGeeks. (2026). *Equivalence Partitioning Method*. https://www.geeksforgeeks.org/software-engineering/equivalence-partitioning-method/
+
+
+## Black Box Testing — Part 2
+
+### Overview
+
+Part 2 builds on the equivalence partitioning and black-box testing techniques documented in Part 1. It uses decision table testing and state transition testing to verify the North Vacation Booking application's reservation rules, pricing, availability, and reservation lifecycle.
+
+### Decision Table Testing
+
+The decision table identifies combinations of reservation conditions and their expected actions.
+
+- `docs/decision-table.md` — Conditions, actions, decision rules, and pricing formula.
+- `docs/decision-table-test-cases.md` — Six test cases covering valid reservations, pricing, unavailable dates, invalid stay lengths, invalid guest counts, and invalid date order.
+
+### State Transition Testing
+
+The state transition documents verify the reservation lifecycle and the handling of invalid state changes.
+
+- `docs/state-transition-table.md` — Reservation states, events, valid transitions, and invalid transitions.
+- `docs/state-transition-test-cases.md` — Thirteen test cases covering valid transitions, invalid transitions, a complete reservation sequence, and a cancellation sequence.
+
+### Reservation Requirements Covered
+
+Testing covers:
+
+- Reservations of 1–31 nights.
+- Reservations for 1–12 guests.
+- The $200 nightly rate and one-time $50 cleaning fee.
+- The additional $25 per night for each guest over five.
+- Date validation and availability checks.
+- Appropriate `ValueError`, `UnavailableError`, and `InvalidStateError` exceptions.
+- Reservation states: Pending, Confirmed, Checked In, Completed, and Cancelled.
+
+### Testing Approach
+
+These documents define expected outcomes for black-box testing. They describe the inputs, conditions, expected actions, prices, exceptions, and state changes without requiring knowledge of the application's internal implementation.
+
+**Note:** The test cases specify expected results; they do not claim that the application has been executed or that the results have been verified against a running implementation.
